@@ -1,62 +1,96 @@
 ---
-import ExperienceCard from '@/components/ExperienceCard.astro';
-import ProjectCard from '@/components/ProjectCard.astro';
-import Layout from '@/layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import ExperienceCard from "@/components/ExperienceCard.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
-const projects = await getCollection('projects');
-const personalProjects = await getCollection('personalProjects');
-const jobs = await getCollection('jobs');
+const projects = await getCollection("projects");
+const personalProjects = await getCollection("personalProjects");
+const jobs = await getCollection("jobs");
+
+// derived collections for layout logic
+const projectsRest = projects.slice(1);
+const personalProjectsRest = personalProjects.slice(1);
 ---
+
 <Layout title="Tomás Hurrell Portfolio">
-	<section class="my-64 px-4 md:px-16 lg:px-32 xl:px-64">
-		<article class="prose lg:prose-xl dark:prose-invert">
-			<h1>Hi! I'm Tomás Hurrell</h1>
-			<p>I’m a passionate Development Team Lead and Front-End Technical Lead with a strong focus on creating beautiful, maintainable software that prioritizes product, design, and user experience. While specializing in front-end development, my full-stack expertise enables me to lead cross-functional teams and tackle diverse technical challenges. I also have experience teaching and mentoring, fostering technical skills and critical thinking in aspiring developers.</p>
-			<p>Musician and photography aficionado.</p>
-			<p>Seeking constant improvement.</p>
-		</article>
-	</section>
-	<section class="mt-64 mb-6 px-4 md:px-16 lg:px-32 xl:px-64">
-		<article class="prose lg:prose-xl dark:prose-invert py-4">
-			<h3 class="mb-8">Featured work</h3>
-		</article>
-		<div class="grid gap-4">
-			<ProjectCard project={projects.at(0)} imageClassName="h-96" />
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
-				{projects.slice(1).map((project) => {
-					return (
-						<ProjectCard project={project} />
-					);
-				})}
-			</div>
-		</div>
-	</section>
-	<section class="mt-32 mb-6 px-4 md:px-16 lg:px-32 xl:px-64">
-		<article class="prose lg:prose-xl dark:prose-invert py-4">
-			<h3 class="mb-8">Personal projects</h3>
-		</article>
-		<div class="grid gap-4">
-			<ProjectCard project={personalProjects.at(0)} imageClassName="h-96" />
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
-				{personalProjects.slice(1).map((project) => {
-					return (
-						<ProjectCard project={project} />
-					);
-				})}
-			</div>
-		</div>
-	</section>
-	<section class="mt-32 mb-6 px-4 md:px-16 lg:px-32 xl:px-64">
-		<article class="prose lg:prose-md dark:prose-invert">
-			<h3 class="mb-8">Experience</h3>
-			<div class="gap-4">
-				{jobs.map((experience) => {
-					return (
-						<ExperienceCard experience={experience} />
-					);
-				})}
-			</div>
-		</article>
-	</section>
+  <section class="my-64 px-4 md:px-16 lg:px-32 xl:px-64">
+    <article class="prose lg:prose-xl dark:prose-invert">
+      <h1>Hi! I'm Tomás Hurrell</h1>
+      <p>
+        I’m a passionate Software Engineer with a strong focus on creating
+        beautiful and maintainable software that prioritizes product, design,
+        and user experience. While specializing in front-end development, my
+        full-stack expertise enables me to lead cross-functional teams and
+        tackle diverse technical challenges. I also have experience teaching in
+        higher education, mentoring and fostering technical skills and critical
+        thinking in aspiring developers.
+      </p>
+      <p>Musician and photography aficionado.</p>
+      <p>Seeking constant improvement.</p>
+    </article>
+  </section>
+  <section class="mt-64 mb-6 px-4 md:px-16 lg:px-32 xl:px-64">
+    <article class="prose lg:prose-xl dark:prose-invert py-4">
+      <h3 class="mb-8">Featured work</h3>
+    </article>
+    <div class="grid gap-4">
+      <ProjectCard project={projects.at(0)} imageClassName="h-96" />
+      {
+        projectsRest.length > 0 && (
+          <div
+            class={
+              projectsRest.length === 1
+                ? "grid grid-cols-1 place-items-center items-center gap-4"
+                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 items-center gap-4"
+            }
+          >
+            {projectsRest.map((project) => {
+              return <ProjectCard project={project} />;
+            })}
+          </div>
+        )
+      }
+    </div>
+  </section>
+  <section class="mt-32 mb-6 px-4 md:px-16 lg:px-32 xl:px-64">
+    <article class="prose lg:prose-xl dark:prose-invert py-4">
+      <h3 class="mb-8">Personal projects</h3>
+    </article>
+    <div class="grid gap-4">
+      <ProjectCard project={personalProjects.at(0)} imageClassName="h-96" />
+      {
+        personalProjectsRest.length > 0 && (
+          <div
+            class={
+              personalProjectsRest.length === 1
+                ? "grid grid-cols-1 place-items-center items-center gap-4"
+                : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 items-center gap-4"
+            }
+          >
+            {personalProjectsRest.map((project) => {
+              return <ProjectCard project={project} />;
+            })}
+          </div>
+        )
+      }
+    </div>
+  </section>
+  <section class="mt-32 mb-6 px-4 md:px-16 lg:px-32 xl:px-64">
+    <article class="prose lg:prose-md dark:prose-invert">
+      <h3 class="mb-8">Experience</h3>
+      <div class="gap-4">
+        {
+          jobs
+            .sort(
+              (a, b) =>
+                parseInt(b.id.split("-")[0]) - parseInt(a.id.split("-")[0])
+            )
+            .map((experience) => {
+              return <ExperienceCard experience={experience} />;
+            })
+        }
+      </div>
+    </article>
+  </section>
 </Layout>
