@@ -2,20 +2,21 @@
 import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
-import { Github, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
+import { GithubIcon } from "@/components/icons/GithubIcon";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   const personalProjects = await getCollection("personalProjects");
   
   return [...projects, ...personalProjects].map((project) => ({
-    params: { id: project.slug },
+    params: { id: project.id },
     props: { project },
   }));
 }
 
 const { project } = Astro.props;
-const { slug, data } = project;
+const { id: slug, data } = project;
 const { title, img, linkAvailable, link, sourcecodeAvailable, sourcecode } = data;
 
 const { Content } = await render(project);
@@ -54,7 +55,7 @@ const { Content } = await render(project);
         rel="noopener noreferrer"
         >
           <Button variant="outline">
-            <span class="pr-2">Source</span><Github />
+            <span class="pr-2">Source</span><GithubIcon />
           </Button>
         </a>}
       </div>

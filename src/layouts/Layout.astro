@@ -70,11 +70,13 @@ const { title } = Astro.props;
 	<Footer />
 </html>
 <style is:global>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		cursor: none !important;
-		scrollbar-width: none;
+	@layer base {
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			cursor: none !important;
+			scrollbar-width: none;
+		}
 	}
 </style>

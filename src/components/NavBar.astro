@@ -1,5 +1,6 @@
 ---
-import { Github, Linkedin } from 'lucide-react'
+import { GithubIcon } from './icons/GithubIcon'
+import { LinkedinIcon } from './icons/LinkedinIcon'
 import { ThemeToggle } from './react/ThemeToggle.tsx'
 import { Button } from './ui/button'
 ---
@@ -17,7 +18,7 @@ import { Button } from './ui/button'
         variant="outline"
         className='flex items-center justify-center w-10 h-10 p-2 mr-2'
       >
-        <Linkedin className='h-[1.2rem] w-[1.2rem]' />
+        <LinkedinIcon className='h-[1.2rem] w-[1.2rem]' />
       </Button>
     </a>
     <a
@@ -30,7 +31,7 @@ import { Button } from './ui/button'
         variant="outline"
         className='flex items-center justify-center w-10 h-10 p-2 mr-2'
       >
-        <Github className='h-[1.2rem] w-[1.2rem]'/>
+        <GithubIcon className='h-[1.2rem] w-[1.2rem]'/>
       </Button>
     </a>
     <ThemeToggle client:load />
