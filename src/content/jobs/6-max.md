@@ -2,5 +2,5 @@
 name: Max Capital
 ---
 ### Senior Software Engineer
-#### November 2025 - Present
+#### November 2025 - November 2026
 Contributing to the development of a cutting-edge payment processor platform, focusing on frontend architecture, performance optimization, and user experience, and a mix of backend API work.
