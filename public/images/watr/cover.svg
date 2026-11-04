@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="810" viewBox="0 0 1440 810" fill="none">
+  <title>Watr — hydration breaks while staying accountable</title>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1440" y2="810" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F8FB"/><stop offset="1" stop-color="#E8EDF9"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="0" cy="0" r="1" gradientTransform="translate(1080 275) rotate(65) scale(380)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF1FF"/><stop offset="1" stop-color="#AAB9E6"/>
+    </radialGradient>
+    <linearGradient id="drop" x1="1055" y1="240" x2="1160" y2="570" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity=".95"/><stop offset="1" stop-color="white" stop-opacity=".35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="810" fill="url(#background)"/>
+  <circle cx="1125" cy="405" r="230" fill="url(#orb)"/>
+  <circle cx="1055" cy="340" r="152" fill="white" opacity=".15"/>
+  <path d="M1125 245C1092 320 1027 400 1027 457C1027 587 1223 587 1223 457C1223 400 1158 320 1125 245Z" fill="url(#drop)"/>
+  <text x="112" y="350" fill="#242B3D" font-family="system-ui, -apple-system, sans-serif" font-size="128" font-weight="700" letter-spacing="-8">watr</text>
+  <text x="119" y="430" fill="#525C76" font-family="system-ui, -apple-system, sans-serif" font-size="36">Hydration breaks while staying accountable.</text>
+  <rect x="118" y="487" width="496" height="58" rx="29" fill="#DDE4F6"/>
+  <text x="366" y="525" text-anchor="middle" fill="#5365A2" font-family="system-ui, -apple-system, sans-serif" font-size="24">Build a healthy habit, one sip at a time.</text>
+</svg>

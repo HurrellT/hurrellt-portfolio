@@ -21,7 +21,12 @@ Request Recon is a Chrome DevTools extension I built to make frontend developmen
 
 Built with React, Vite, and the Chrome extension APIs. Captured traffic stays in memory, while rules and preferences are saved locally. Response overrides happen after requests reach the server.
 
-Read the [Request Recon Privacy Policy](/request-recon/privacy-policy).
+### Privacy
+
+The policies below explain captured traffic, local rules, optional AI providers, permissions, and how to delete data or contact the developer.
+
+- [Request Recon Privacy Policy — English](/request-recon/privacy-policy)
+- [Política de privacidad de Request Recon — Español](/request-recon/privacy-policy/es)
 
 ## Screenshots
 
